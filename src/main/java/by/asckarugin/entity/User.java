@@ -10,7 +10,7 @@ import java.util.Set;
 
 @Entity
 @AllArgsConstructor
-@NoArgsConstructor(force = true)
+@NoArgsConstructor
 @Builder
 @Data
 @Table(name = "users")
@@ -26,6 +26,7 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
+    @ElementCollection
     private Set<Role> roles;
 
     public User(String username, String password, Set<Role> roles) {
@@ -33,4 +34,5 @@ public class User {
         this.password = password;
         this.roles = roles;
     }
+
 }
